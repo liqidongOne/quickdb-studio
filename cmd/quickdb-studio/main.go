@@ -28,7 +28,12 @@ func main() {
 		token = t
 	}
 
-	addr := "127.0.0.1:17890"
+	// Default to localhost for safety.
+	// For Docker/remote usage, set QUICKDB_STUDIO_ADDR=0.0.0.0:17890 (or another address).
+	addr := os.Getenv("QUICKDB_STUDIO_ADDR")
+	if addr == "" {
+		addr = "127.0.0.1:17890"
+	}
 	ln, err := net.Listen("tcp", addr)
 	if err != nil {
 		log.Fatalf("listen %s failed: %v", addr, err)
@@ -56,4 +61,3 @@ func main() {
 	_ = srv.Shutdown(ctx)
 	log.Printf("quickdb-studio shutdown complete")
 }
-

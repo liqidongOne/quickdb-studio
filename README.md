@@ -18,6 +18,9 @@
 ### 连接管理
 ![Connections](docs/assets/quickdb-connections.png)
 
+### MySQL 数据浏览
+![MySQL Data](docs/assets/quickdb-mysql-data.png)
+
 ## 功能概览（已实现）
 - Connections（本地保存连接配置到 `connections.json`）：
   - MySQL / Redis 连接创建、查询、更新、删除
@@ -43,6 +46,8 @@ docker compose up --build
 访问：`http://127.0.0.1:17890`
 
 > compose 默认 token 为 `devtoken`（见 `docker-compose.yml`）。
+>
+> 注意：容器内默认会监听 `0.0.0.0:17890`（通过 `QUICKDB_STUDIO_ADDR` 配置），否则端口映射无法访问。
 
 ### 方式 B：下载 Release（推荐用于普通用户）
 1. 到 GitHub Releases 下载对应平台的压缩包
@@ -51,6 +56,7 @@ docker compose up --build
 程序会在日志里打印本机 token（或你自行通过环境变量设置）：
 ```bash
 export QUICKDB_STUDIO_TOKEN=devtoken
+export QUICKDB_STUDIO_ADDR=127.0.0.1:17890
 ./quickdb-studio
 ```
 
@@ -97,6 +103,11 @@ make build
 1. 启动服务后打开：`http://127.0.0.1:17890`
 2. 页面顶部输入 token（与 `QUICKDB_STUDIO_TOKEN` 一致），点击“保存”
 3. 之后就可以管理连接、浏览 MySQL/Redis
+
+## 配置（环境变量）
+- `QUICKDB_STUDIO_TOKEN`：鉴权 token（建议设置固定值，便于使用）
+- `QUICKDB_STUDIO_ADDR`：监听地址，默认 `127.0.0.1:17890`
+  - Docker 场景应设置为 `0.0.0.0:17890`
 
 ## 目录说明
 - `cmd/quickdb-studio/`：程序入口（token 生成、localhost 监听）

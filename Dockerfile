@@ -19,6 +19,6 @@ FROM gcr.io/distroless/static-debian12:nonroot
 WORKDIR /
 COPY --from=backend /out/quickdb-studio /quickdb-studio
 ENV QUICKDB_STUDIO_TOKEN=""
+ENV QUICKDB_STUDIO_ADDR="0.0.0.0:17890"
 EXPOSE 17890
 ENTRYPOINT ["/quickdb-studio"]
-

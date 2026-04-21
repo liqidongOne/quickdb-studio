@@ -5,7 +5,7 @@ WEBUI_DIST := $(WEBUI_DIR)/dist
 EMBED_DIST := internal/webassets/webui_dist
 
 webui-install:
-	cd $(WEBUI_DIR) && npm install
+	cd $(WEBUI_DIR) && npm ci
 
 webui-build:
 	cd $(WEBUI_DIR) && npm run build
@@ -16,6 +16,7 @@ webui-copy:
 	cp -r $(WEBUI_DIST)/* $(EMBED_DIST)/
 
 go-build:
+	mkdir -p dist
 	go build -o dist/quickdb-studio ./cmd/quickdb-studio
 
 build-webui: webui-install webui-build webui-copy
