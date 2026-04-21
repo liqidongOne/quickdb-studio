@@ -1,0 +1,37 @@
+project_name: quickdb-studio
+
+before:
+  hooks:
+    - sh -c "cd webui && npm ci"
+    - sh -c "cd webui && npm run build"
+    - sh -c "rm -rf internal/webassets/webui_dist && mkdir -p internal/webassets/webui_dist && cp -R webui/dist/* internal/webassets/webui_dist/"
+
+builds:
+  - id: quickdb-studio
+    main: ./cmd/quickdb-studio
+    binary: quickdb-studio
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  github:
+    owner: liqidongOne
+    name: quickdb-studio
+

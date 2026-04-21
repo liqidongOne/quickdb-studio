@@ -1,0 +1,16 @@
+services:
+  quickdb-studio:
+    build: .
+    ports:
+      - "17890:17890"
+    environment:
+      # you can set a fixed token, or leave empty to auto-generate (printed in logs)
+      QUICKDB_STUDIO_TOKEN: "devtoken"
+      # store config under /data (so connections.json persists)
+      XDG_CONFIG_HOME: "/data"
+    volumes:
+      - quickdb_data:/data
+
+volumes:
+  quickdb_data:
+

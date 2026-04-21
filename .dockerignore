@@ -1,0 +1,9 @@
+.git
+.github
+dist
+webui/node_modules
+webui/dist
+internal/webassets/webui_dist
+**/*.log
+**/*.tmp
+

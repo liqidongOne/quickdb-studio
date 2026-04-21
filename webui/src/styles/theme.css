@@ -1,0 +1,62 @@
+:root {
+  /* 灰系暗色（更中性，降低蓝紫渐变） */
+  --solo-bg: #0b0f14;
+  --solo-panel: #111823;
+  --solo-panel-2: #151f2c;
+  --solo-border: rgba(255, 255, 255, 0.08);
+  --solo-text: rgba(255, 255, 255, 0.92);
+  --solo-text-muted: rgba(255, 255, 255, 0.62);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--solo-bg);
+}
+
+/* 更像桌面工具的滚动条（仅 WebKit） */
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Workspace 暗色容器：给非 AntD 的小块也统一色系 */
+.solo-workspace {
+  background: transparent;
+}
+.solo-workspace .solo-panel {
+  background: rgba(17, 24, 35, 0.82);
+  border: 1px solid var(--solo-border);
+  border-radius: 12px;
+}
+
+/* AntD Tree 在暗色背景下更清晰：选中/hover */
+.solo-workspace .ant-tree {
+  background: transparent;
+}
+.solo-workspace .ant-tree .ant-tree-node-content-wrapper:hover {
+  background: rgba(79, 140, 255, 0.12) !important;
+}
+.solo-workspace .ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background: rgba(79, 140, 255, 0.18) !important;
+  color: var(--solo-text) !important;
+}
+
+/* Tabs 更像编辑器标签 */
+.solo-workspace .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  border-radius: 10px 10px 0 0;
+}

@@ -1,0 +1,20 @@
+### Go
+/dist/
+*.exe
+*.out
+*.test
+
+### Node / Vite
+/webui/node_modules/
+/webui/dist/
+
+### Embedded web assets (generated)
+/internal/webassets/webui_dist/*
+!/internal/webassets/webui_dist/index.html
+!/internal/webassets/webui_dist/assets/
+!/internal/webassets/webui_dist/assets/.keep
+
+### OS junk
+.DS_Store
+._*
+
