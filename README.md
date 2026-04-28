@@ -34,7 +34,7 @@
 
 ## 安全默认值
 - 服务只绑定 `127.0.0.1:17890`（默认不对局域网开放）
-- `/api/v1`（除 `/health`）都要求 `Authorization: Bearer <token>`
+- `/api/v1`（除 `/health`）都要求 `Authorization: Bearer <YOUR_TOKEN>`
 - **MVP：连接密码明文落盘**（后续可加 Keychain/主密码加密）。请仅在可信机器上使用，注意本地磁盘安全。
 
 ## 安装与运行
@@ -55,7 +55,7 @@ docker compose up --build
 
 程序会在日志里打印本机 token（或你自行通过环境变量设置）：
 ```bash
-export QUICKDB_STUDIO_TOKEN=devtoken
+export QUICKDB_STUDIO_TOKEN=<YOUR_TOKEN>
 export QUICKDB_STUDIO_ADDR=127.0.0.1:17890
 ./quickdb-studio
 ```
@@ -67,14 +67,14 @@ export QUICKDB_STUDIO_ADDR=127.0.0.1:17890
 
 ### 2) 启动后端
 ```bash
-export QUICKDB_STUDIO_TOKEN=devtoken
+export QUICKDB_STUDIO_TOKEN=<YOUR_TOKEN>
 go run ./cmd/quickdb-studio
 ```
 
 接口示例：
 ```bash
 curl http://127.0.0.1:17890/api/v1/health
-curl -H "Authorization: Bearer devtoken" http://127.0.0.1:17890/api/v1/connections
+curl -H "Authorization: Bearer <YOUR_TOKEN>" http://127.0.0.1:17890/api/v1/connections
 ```
 
 ### 3) 启动前端（独立 dev server）

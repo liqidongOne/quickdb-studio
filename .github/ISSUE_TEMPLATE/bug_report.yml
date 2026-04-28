@@ -1,0 +1,59 @@
+name: Bug Report 🐛
+description: Report a bug to help us improve
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      text: |
+        Thanks for taking the time to report a bug!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of the bug
+      placeholder: Describe what happened vs what you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How to reproduce this bug
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        - OS: (e.g. macOS 14, Ubuntu 22.04, Windows 11)
+        - How did you run: (Docker / Release binary / Source build)
+        - quickdb-studio version:
+      placeholder: Your environment details
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: Any error messages or logs from quickdb-studio
+      placeholder: Paste relevant logs here
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: security
+    attributes:
+      label: Security Note
+      description: If your bug involves sensitive data, please check this box
+      options:
+        - label: This bug does not involve sensitive credentials or data
+          required: true

@@ -1,0 +1,44 @@
+name: Feature Request ✨
+description: Suggest a new feature or improvement
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      text: |
+        Thanks for suggesting a feature!
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem it Solves
+      description: What problem does this feature solve? Why is it needed?
+      placeholder: Describe the use case this feature would enable
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How do you envision this feature working?
+      placeholder: Describe your ideal solution
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any other solutions you've considered?
+      placeholder: Alternative approaches
+    validations:
+      required: false
+
+  - type: textarea
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you? (1-5)
+      placeholder: "3"
+    validations:
+      required: false
